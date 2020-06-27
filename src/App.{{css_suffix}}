@@ -1,0 +1,23 @@
+{{#with css}}
+html,body {
+    margin:0;
+    padding:0;
+}
+{{/with}}
+{{#with sass}}
+html,body {
+    margin:0;
+    padding:0;
+}
+{{/with}}
+{{#with less}}
+html,body {
+    margin:0;
+    padding:0;
+}
+{{/with}}
+{{#with stylus}}
+html,body
+    margin:0;
+    padding:0;
+{{/with}}

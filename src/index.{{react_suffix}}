@@ -1,0 +1,15 @@
+{{#if typescript}}
+import * as React from "react"
+import * as ReactDOM from "react-dom"
+{{else}}
+import React from "react"
+import ReactDOM from "react-dom"
+{{/if}}
+import App from "./App"
+
+const root = document.getElementById("root");
+
+ReactDOM.render(
+    <App/>,
+    root
+);
