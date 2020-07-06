@@ -1,7 +1,7 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const cssSuffixMap = new Map([
-    ['','css'],
+    ['', 'css'],
     ['sass', '(sc|sa|c)ss'],
     ['less', '(le|c)ss'],
     ['stylus', '(styl|css)']
@@ -30,11 +30,7 @@ const cssLoaders = function (opt) {
 
     let loaders = [cssLoader, postcssLoader]
     if (css_pre) loaders.push(`${css_pre}-loader`)
-    if (extract) {
-        loaders = [MiniCssExtractPlugin.loader].concat(loaders)
-    } else {
-        loaders = ["style-loader"].concat(loaders)
-    }
+    loaders = extract ? [MiniCssExtractPlugin.loader].concat(loaders) : ["style-loader"].concat(loaders)
 
     return loaders
 }

@@ -11,6 +11,8 @@ const config = {
         contentBase: path.join(__dirname, '../dist'),
         compress: true,
         port: 7000,
+        hot: true,
+        hotOnly: true,
         publicPath: '/public/',
         historyApiFallback: {
             index: '/public/index.html'

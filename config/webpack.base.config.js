@@ -6,6 +6,8 @@ const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const genCssLoader = require('./utils/genCssLoader')
 
+const isDev = process.env.NODE_ENV === 'development'
+
 const config = {
     output: {
         filename: '[name].[hash].js',
@@ -32,7 +34,15 @@ const config = {
                     {{/with}}
                 ]
             },
-            genCssLoader({css_pre:'{{css_pre}}', extract: false})
+            genCssLoader({css_pre:'{{css_pre}}', extract: !isDev}),
+            {
+                test: /\.(png|jpe?g|gif|svg)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 100000,
+                    name: 'assets/image/[name].[hash:7].[ext]'
+                }
+            }
         ]
     },
     plugins: [
@@ -44,7 +54,19 @@ const config = {
         {{/with}}
         new CleanWebpackPlugin()
     ],
-    optimization: {},
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: 10,
+                    minSize: 244000,
+                    name: 'vendor',
+                    chunks: 'initial'
+                }
+            }
+        }
+    },
     externals: {
         react: 'React',
         'react-dom': 'ReactDOM'
