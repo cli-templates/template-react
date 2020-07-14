@@ -1,0 +1,40 @@
+import * as types from './types'
+{{#if typescript}}
+const initialState: types.HomeState = { count: 1 }
+
+export const actions = {
+    setCount: (): types.SetCountAction => ({ type: types.SET_COUNT })
+}
+
+const reducer = (state = initialState, action: types.ActionsType): types.HomeState => {
+    switch (action.type) {
+        case types.SET_COUNT:
+            const { count } = state
+            return { ...state, count: count + 1 }
+        default:
+            return state
+    }
+}
+
+export const getCount = (state:any) => state.home.count
+{{else}}
+const initialState = { count: 1 }
+
+export const actions = {
+    setCount: () => ({ type: types.SET_COUNT })
+}
+
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case types.SET_COUNT:
+            const { count } = state
+            return { ...state, count: count + 1 }
+        default:
+            return state
+    }
+}
+
+export const getCount = (state) => state.home.count
+{{/if}}
+
+export default reducer

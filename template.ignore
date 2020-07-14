@@ -1,6 +1,8 @@
 {{#unless typescript}}
 tsconfig.json
 {{/unless}}
-
+{{#unless redux}}
+src/store
+{{/unless}}
 .git
 template.ignore

@@ -1,0 +1,15 @@
+{{#with typescript}}
+export interface HomeState {
+    count: number
+}
+
+{{/with}}
+export const SET_COUNT = 'HOME/SET_COUNT'
+{{#with typescript}}
+
+export interface SetCountAction {
+   type: typeof SET_COUNT
+}
+
+export type ActionsType = SetCountAction
+{{/with}}

@@ -1,0 +1,100 @@
+{{#if typescript}}
+import * as React from "react"
+{{else}}
+import React from "react"
+{{/if}}
+{{#with react_router}}
+import { Link } from 'react-router-dom';
+{{/with}}
+{{#with redux}}
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { actions as homeActions, getCount } from '@/store/modules/home';
+{{/with}}
+{{#if typescript}}
+{{#with redux}}
+
+interface HomeProps {
+  count:number
+  setCount: () => void
+}
+
+{{/with}}
+{{/if}}
+{{#if typescript}}
+{{#if redux}}
+
+const Home: React.FC<HomeProps> = (props) => {
+  const {count,setCount} = props
+  return (
+    <React.Fragment>
+      <h1>home!</h1>
+      <h3 onClick={setCount}>add</h3>
+      <p>{count}</p>
+      {{#with react_router}}
+      <Link to="/detail">detail</Link>
+      {{/with}}
+    </React.Fragment>
+  );
+};
+{{else}}
+
+const Home: React.FC = () => {
+  return (
+    <React.Fragment>
+      <h1>home!</h1>
+      {{#with react_router}}
+      <Link to="/detail">detail</Link>
+      {{/with}}
+    </React.Fragment>
+  );
+};
+{{/if}}
+{{else}}
+{{#if redux}}
+
+const Home = (props) => {
+  const {count,setCount} = props
+  return (
+    <React.Fragment>
+      <h1>home!</h1>
+      <h3 onClick={setCount}>add</h3>
+      <p>{count}</p>
+      {{#with react_router}}
+      <Link to="/detail">detail</Link>
+      {{/with}}
+    </React.Fragment>
+  );
+};
+{{else}}
+
+const Home = () => {
+  return (
+    <React.Fragment>
+      <h1>home!</h1>
+      {{#with react_router}}
+      <Link to="/detail">detail</Link>
+      {{/with}}
+    </React.Fragment>
+  );
+};
+{{/if}}
+{{/if}}
+
+{{#if redux}}
+const mapStateToProps = (state) => {
+  return {
+    count: getCount(state),
+  };
+};
+
+const mapDispatchToPros = (dispatch) => {
+  return {
+    ...bindActionCreators(homeActions, dispatch),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToPros)(Home);
+{{else}}
+export default Home;
+{{/if}}

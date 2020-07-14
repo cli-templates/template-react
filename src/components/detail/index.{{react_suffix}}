@@ -1,0 +1,25 @@
+{{#if typescript}}
+import * as React from 'react';
+{{else}}
+import React from "react"
+{{/if}}
+{{#with react_router}}
+import { Link } from 'react-router-dom';
+{{/with}}
+
+{{#if typescript}}
+const Detail: React.FC = () => {
+{{else}}
+const Detail = () => {
+{{/if}}  
+  return (
+    <React.Fragment>
+      <h1>detail</h1>
+      {{#with react_router}}
+      <Link to="/">home</Link>
+      {{/with}}
+    </React.Fragment>
+  );
+};
+
+export default Detail;

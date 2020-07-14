@@ -53,6 +53,10 @@
     "node-sass": "^4.14.1",
     {{/with}}
     "postcss-loader": "^3.0.0",
+    "react-hot-loader": "^4.12.21",
+    {{#with redux}}
+    "redux-devtools": "^3.5.0",
+    {{/with}}
     {{#with sass}}
     "sass-loader": "^8.0.2",
     {{/with}}
@@ -73,7 +77,21 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    {{#if redux}}
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    {{#if react_router}}
+    "react-router-dom": "^5.2.0",
+    {{/if}}
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+    {{else}}
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    {{#if react_router}}
+    "react-router-dom": "^5.2.0",
+    {{/if}}
+    {{/if}}
   }
 }
