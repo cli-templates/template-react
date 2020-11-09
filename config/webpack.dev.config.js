@@ -13,9 +13,9 @@ const config = {
         port: 7000,
         hot: true,
         hotOnly: true,
-        publicPath: '/public/',
+        publicPath: '/',
         historyApiFallback: {
-            index: '/public/index.html'
+            index: '/index.html'
         }
     }
 }

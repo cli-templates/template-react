@@ -13,7 +13,7 @@ const config = {
         filename: '[name].[hash].js',
         chunkFilename: '[name].chunk.[hash].js',
         path: path.resolve(__dirname, '../dist'),
-        publicPath: '/public/'
+        publicPath: '/'
     },
     module: {
         rules: [

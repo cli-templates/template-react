@@ -4,5 +4,9 @@ tsconfig.json
 {{#unless redux}}
 src/store
 {{/unless}}
+{{#unless jest}}
+__tests__
+config/jest
+{{/unless}}
 .git
 template.ignore
