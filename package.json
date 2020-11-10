@@ -28,16 +28,13 @@
   "homepage": "https://github.com/cli-templates/template-react#readme",
   "devDependencies": {
     "@babel/core": "^7.10.3",
-    "@babel/plugin-proposal-class-properties": "^7.10.1",
-    "@babel/plugin-proposal-decorators": "^7.10.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.10.3",
-    "@babel/preset-env": "^7.10.3",
-    "@babel/preset-react": "^7.10.1",
     {{#with jest}}
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.8",
+    {{#with typescript}}
     "@types/jest": "^24.9.1",
+    {{/with}}
     {{/with}}
     {{#with typescript}}
     "@types/react": "^16.9.41",
@@ -69,6 +66,7 @@
     "node-sass": "^4.14.1",
     {{/with}}
     "postcss-loader": "^3.0.0",
+    "react-app-polyfill": "^2.0.0",
     "react-hot-loader": "^4.12.21",
     {{#with redux}}
     "redux-devtools": "^3.5.0",
@@ -104,12 +102,12 @@
     "redux-thunk": "^2.3.0"
     {{else}}
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    {{#if react_router}}
+    "react-dom": "^16.13.1"{{#if react_router}},
     "react-router-dom": "^5.2.0"
     {{/if}}
     {{/if}}
-  }{{#with jest}},
+  },
+  {{#with jest}}
   "jest": {
     "roots": [
       "<rootDir>/src",
@@ -130,6 +128,7 @@
       "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jsdom",
+    "testRunner": "./node_modules/jest-circus/runner.js",
     "transform": {
       "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
@@ -139,11 +138,6 @@
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
       "^.+\\.module\\.(css|sass|scss)$"
     ],
-    "modulePaths": [],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-    },
     "moduleFileExtensions": [
       "web.js",
       "js",
@@ -161,6 +155,11 @@
       "jest-watch-typeahead/testname"
     ],
     "resetMocks": true
-  }
+  },
   {{/with}}
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  }
 }
