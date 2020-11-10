@@ -115,7 +115,7 @@
       "react-app-polyfill/jsdom"
     ],
     "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.{{name}",
+      "<rootDir>/src/setupTests.{{name}}",
       {{#if typescript}}
       "<rootDir>/src/setupTests.ts"
       {{else}}
