@@ -101,7 +101,7 @@
     {{/if}}
     {{/if}}
   },
-  {{#if typescript}}
+  {{#if jest}}
   "jest": {
     "roots": [
       "<rootDir>/src",
