@@ -1,5 +1,6 @@
 {{#unless typescript}}
 tsconfig.json
+typings
 {{/unless}}
 {{#unless redux}}
 src/store

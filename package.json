@@ -19,12 +19,6 @@
   ],
   "author": "biaodigit",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cli-templates/template-react/issues",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.config.js",
-    "dev:build": "cross-env NODE_ENV=development webpack --config config/webpack.dev.config.js",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.config.js"
-  },
   "homepage": "https://github.com/cli-templates/template-react#readme",
   "devDependencies": {
     "@babel/core": "^7.10.3",
@@ -121,7 +115,7 @@
       "react-app-polyfill/jsdom"
     ],
     "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.ts"
+      "<rootDir>/src/setupTests.{{js_suffix}}"
     ],
     "testMatch": [
       "<rootDir>/__tests__/**/*.{js,jsx,ts,tsx}",

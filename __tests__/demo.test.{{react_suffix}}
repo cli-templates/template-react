@@ -13,7 +13,7 @@ const Demo = () => {
 
 describe('test Test component', () => {
   it('render default Test', () => {
-    render(<Test />);
+    render(<Demo />);
     const element = screen.getByText('demo');
     expect(element).toBeInTheDocument();
   });
