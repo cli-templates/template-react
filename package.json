@@ -33,119 +33,59 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
-    {
-      {#with jest
-      }
-    }
+    {{#with jest}}
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.8",
     "@types/jest": "^24.9.1",
-    {
-      {/with
-      }
-    }
-    {
-      {#with typescript
-      }
-    }
+    {{/with}}
+    {{#with typescript}}
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
-    {
-      {/with
-      }
-    }
+    {{/with}}
     "autoprefixer": "^9.8.4",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^10.0.0",
-    {
-      {#with jest
-      }
-    }
+    {{#with jest}}
     "camelcase": "^6.2.0",
-    {
-      {/with
-      }
-    }
+    {{/with}}
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^7.0.2",
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.10",
     "fork-ts-checker-webpack-plugin": "^5.0.5",
     "html-webpack-plugin": "^4.3.0",
-    {
-      {#with use_jest
-      }
-    }
+    {{#with use_jest}}
     "jest": "^26.6.3",
     "jest-circus": "^26.6.3",
     "jest-resolve": "^26.6.2",
     "jest-watch-typeahead": "^0.6.1",
-    {
-      {/with
-      }
-    }
-    {
-      {#with less
-      }
-    }
+    {{/with}}
+    {{#with less}}
     "less-loader": "^6.1.2",
-    {
-      {/with
-      }
-    }
+    {{/with}}
     "mini-css-extract-plugin": "^0.9.0",
-    {
-      {#with sass
-      }
-    }
+    {{#with sass}}
     "node-sass": "^4.14.1",
-    {
-      {/with
-      }
-    }
+    {{/with}}
     "postcss-loader": "^3.0.0",
     "react-hot-loader": "^4.12.21",
-    {
-      {#with redux
-      }
-    }
+    {{#with redux}}
     "redux-devtools": "^3.5.0",
-    {
-      {/with
-      }
-    }
-    {
-      {#with sass
-      }
-    }
+    {{/with}}
+    {{#with sass}}
     "sass-loader": "^8.0.2",
-    {
-      {/with
-      }
-    }
+    {{/with}}
     "style-loader": "^1.2.1",
-    {
-      {#with stylus
-      }
-    }
+    {{#with stylus}}
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
-    {
-      {/with
-      }
-    }
-    {
-      {#with typescript
-      }
-    }
+    {{/with}}
+    {{#with typescript}}
     "ts-loader": "^7.0.5",
     "tslib": "^1.11.1",
     "typescript": "^3.8.3",
-    {
-      {/with
-      }
-    }
+    {{/with}}
     "url-loader": "^4.1.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
@@ -153,47 +93,23 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    {
-      {#if redux
-      }
-    }
+    {{#if redux}}
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
-    {
-      {#if react_router
-      }
-    }
+    {{#if react_router}}
     "react-router-dom": "^5.2.0",
-    {
-      {/if
-      }
-    }
+    {{/if}}
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
-    {
-      {else
-      }
-    }
+    {{else}}
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    {
-      {#if react_router
-      }
-    }
+    {{#if react_router}}
     "react-router-dom": "^5.2.0"
-    {
-      {/if
-      }
-    }
-    {
-      {/if
-      }
-    }
-  }{
-    {#with jest
-    }
-  },
+    {{/if}}
+    {{/if}}
+  }{{#with jest}},
   "jest": {
     "roots": [
       "<rootDir>/src",
@@ -246,8 +162,5 @@
     ],
     "resetMocks": true
   }
-  {
-    {/with
-    }
-  }
+  {{/with}}
 }
