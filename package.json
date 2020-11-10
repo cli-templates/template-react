@@ -101,7 +101,6 @@
     {{/if}}
     {{/if}}
   },
-  {{#with jest}}
   "jest": {
     "roots": [
       "<rootDir>/src",
@@ -115,12 +114,7 @@
       "react-app-polyfill/jsdom"
     ],
     "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.{{name}}",
-      {{#if typescript}}
-      "<rootDir>/src/setupTests.ts"
-      {{else}}
-      "<rootDir>/src/setupTests.js"
-      {{/if}}
+      "<rootDir>/src/setupTests.{{js_suffix}}",
     ],
     "testMatch": [
       "<rootDir>/__tests__/**/*.{js,jsx,ts,tsx}",
@@ -155,7 +149,6 @@
     ],
     "resetMocks": true
   },
-  {{/with}}
   "babel": {
     "presets": [
       "react-app"
