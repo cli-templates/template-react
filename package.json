@@ -33,6 +33,12 @@
     {{#with typescript}}
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
+    {{#with redux}}
+    "@types/react-redux": "^7.1.11",
+    {{/with}}
+    {{#with react_router}}
+    "@types/react-router-dom": "^5.1.6",
+    {{/with}}
     {{/with}}
     "autoprefixer": "^9.8.4",
     "babel-loader": "^8.1.0",
@@ -101,6 +107,56 @@
     {{/if}}
     {{/if}}
   },
+  {{#if jest}}
+  "jest": {
+    "roots": [
+      "<rootDir>/src",
+      "<rootDir>/__tests__"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.{{js_suffix}}"
+    ],
+    "testMatch": [
+      "<rootDir>/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "testRunner": "./node_modules/jest-circus/runner.js",
+    "transform": {
+      "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ],
+    "resetMocks": true
+  },
+  {{/if}}
   "babel": {
     "presets": [
       "react-app"
