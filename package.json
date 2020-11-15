@@ -22,24 +22,24 @@
   "homepage": "https://github.com/cli-templates/template-react#readme",
   "devDependencies": {
     "@babel/core": "^7.10.3",
-    {{#with jest}}
+    {{#if jest}}
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.8",
-    {{#with typescript}}
+    {{#if typescript}}
     "@types/jest": "^24.9.1",
-    {{/with}}
-    {{/with}}
-    {{#with typescript}}
+    {{/if}}
+    {{/if}}
+    {{#if typescript}}
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
-    {{#with redux}}
+    {{#if redux}}
     "@types/react-redux": "^7.1.11",
-    {{/with}}
-    {{#with react_router}}
+    {{/if}}
+    {{#if react_router}}
     "@types/react-router-dom": "^5.1.6",
-    {{/with}}
-    {{/with}}
+    {{/if}}
+    {{/if}}
     "autoprefixer": "^9.8.4",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^10.0.0",

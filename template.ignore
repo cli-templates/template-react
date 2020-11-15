@@ -8,7 +8,6 @@ src/store
 {{#unless jest}}
 __tests__
 config/jest
-jest.config.{{js_suffix}}
 {{/unless}}
 .git
 template.ignore
