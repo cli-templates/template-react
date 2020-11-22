@@ -6,8 +6,8 @@ typings
 src/store
 {{/unless}}
 {{#unless jest}}
-__tests__
 config/jest
+App.test.{{react_suffix}}
 {{/unless}}
 .git
 template.ignore
